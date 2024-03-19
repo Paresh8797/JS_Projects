@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄Downloder🎄</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        div.container {
+            height: 60vh; 
+            width: 50vw;
+            /* background-color: aqua; */
+            /* align-items: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
+
+        .link1 {
+            height: 30px;
+            width: 250px;
+            border-radius: 5px;
+            opacity: none;
+        }
+
+        .link1:focus {
+            outline: none;
+            box-shadow: 0 0 5px white;
+        }
+
+        #btn {
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <input class="link1" type="url" id="name" placeholder="Paste Link" autocomplete="off">
+            <button id="btn" type="submit">Download</button>
+        </div>
+    </header>
+</body>
+<script>
+    const urlInput = document.querySelector("input");
+    const downloadBtn = document.querySelector("button");
+
+    downloadBtn.addEventListener("click", () => {
+        // console.log("button clicked");
+        // e.preventDefault();
+        downloadBtn.innerText = "Downloading file..."
+        fetchFile(urlInput.value);
+    });
+    const fetchFile = (url) => {
+        fetch(url).then(res => res.blob()).then(file => {
+            let tempUrl = URL.createObjectURL(file);
+            let aTag = document.createElement("a");
+            aTag.download = url.replace(/^.*[\\\/]/, '');
+            document.body.appendChild(aTag);
+            aTag.click();
+            aTag.remove();
+            URL.revokeObjectURL(tempUrl);
+            downloadBtn.innerText = "Download File"
+        });
+    }
+    
+</script>
+
+</html>
