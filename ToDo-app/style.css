@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", "sans";
+}
+
+body {
+    height: 100vh;
+    /* background-image: linear-gradient(45deg, blue, orange); */
+    background: url("compo/Background.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    /* border: 2px solid black; */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    opacity: 0.8;
+    box-shadow: 1px 1px 20px black;
+}
+
+#inp1 {
+    border-radius: 20px;
+    height: 30px;
+    padding: 0 10px 0 10px;
+    border: none;
+    outline: none;
+
+}
+
+#submit {
+    height: 30px;
+    border-radius: 20px;
+    /* border: 2px antiquewhite solid; */
+    border-top: greenyellow;
+    border-bottom: greenyellow;
+    padding: 0 10px 0 10px;
+}
+
+ul li {
+    list-style: none;
+    padding: 12px 0 0 40px;
+    user-select: none;
+    position: relative;
+    cursor: pointer;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-image: url(compo/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+
+}
+
+ul li.checked::before {
+    /* height: 20px;
+    width: 20px; */
+    background-image: url(compo/cheked.png);
+    background-size: cover;
+    background-position: center;
+}
+span{
+    font-size: 22px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    text-align: center;
+    color: #555;
+    border-radius: 50%;
+}
+span:hover{
+    background: #bfc0c2;
+
+}
